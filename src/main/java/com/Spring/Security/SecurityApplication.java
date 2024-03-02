@@ -1,5 +1,4 @@
-package com.Spring.Security;
-
+package com.Spring.Security;	
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -20,9 +19,9 @@ public class SecurityApplication {
 	//this was only for understanding purpose.
 	
 	//1st iteration 
-//	$2a$10$Yilxya7ruZl31Qh1CSvae.2URzEBuLtWIGAABS1LDM/4/WMaRH7Ym
-//	$2a$10$nVydZr17We/KSrjGOesrSeuTdlHPEFFwy5KWlDYo9XHJrolugKC8.
-//	$2a$10$vygfKV0GkMbpWIu./Yvc7.C8YiMp.hNf2q5ZWhbFJEHoJMLFAHlaG
+	//$2a$10$Yilxya7ruZl31Qh1CSvae.2URzEBuLtWIGAABS1LDM/4/WMaRH7Ym
+	//$2a$10$nVydZr17We/KSrjGOesrSeuTdlHPEFFwy5KWlDYo9XHJrolugKC8.
+	//$2a$10$vygfKV0GkMbpWIu./Yvc7.C8YiMp.hNf2q5ZWhbFJEHoJMLFAHlaG
 	
 	//here 2a represent bcrypt algo
 	//10 strength 

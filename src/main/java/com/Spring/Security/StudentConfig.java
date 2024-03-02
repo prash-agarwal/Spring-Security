@@ -1,4 +1,5 @@
 package com.Spring.Security;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -14,7 +15,19 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class StudentConfig extends WebSecurityConfigurerAdapter{
 
-	//responsibilty for StudentConfig class is to provide authentication
+//	@Autowired
+//	PasswordEncoder passordEncoder;
+	
+	//In above we tried to autowire passowrdEncoder instead creating bean of it using @Bean and 
+	//encoded the password in inMemoryAuthentication but that did'nt work.
+	//that's bcoz PasswordEncoder is a Interface and autowiring it won't create bean of it.
+	
+	//Instead bean will be created of the class which is implementing it's method.
+	//Here NoOpPasswordEncoder, BCryptPasswordEncoder and other classes implementing the methods
+	//of PasswordEncoder Interface, so that's why we need to create bean of PasswordEncoder
+	//using @Bean and specify that which class we want to inject. 
+	
+	//responsibilty for StudentConfig class is to provide authentication.
 	String DEVELOPER_AUTHORITY = "developer";
     String DEVOPS_AUTHORITY = "devops";
     
@@ -37,15 +50,18 @@ public class StudentConfig extends WebSecurityConfigurerAdapter{
     	auth.inMemoryAuthentication()
     		.withUser("Arun")
     		.password("123")
+    		//.password(passordEncoder.encode("123"))
     		.authorities(DEVELOPER_AUTHORITY)
     		.and()
     		.withUser("khusboo")
     		.password("try@321")
+    		//.password(passordEncoder.encode("try@321"))
   //.password("$2a$10$nVydZr17We/KSrjGOesrSeuTdlHPEFFwy5KWlDYo9XHJrolugKC8.") Not sure if we can use like this also. 
     		.authorities(DEVOPS_AUTHORITY)
     		.and()
     		.withUser("farooq")
     		.password("try@412")
+    		//.password(passordEncoder.encode("try@412"))
     		.authorities(DEVELOPER_AUTHORITY,DEVOPS_AUTHORITY);		
     }
 
@@ -84,7 +100,7 @@ public class StudentConfig extends WebSecurityConfigurerAdapter{
     	 public PasswordEncoder getPE() {
     		return NoOpPasswordEncoder.getInstance();
     	 } 
-	 
+//	 
     
 //If we use below and don't use this in configure method above, then it will give error.    
 //	 @Bean

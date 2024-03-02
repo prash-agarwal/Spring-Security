@@ -16,7 +16,7 @@ public class StudentController {
 //we need to tell spring to unsecure api.	
 //when we add Security as dependency, all the API's are Secured.	
 	
-//		@GetMapping("/developer")
+//		@GetMapping("/developer")	
 //		public String getDeveloper() {
 		//when user hits this api, the username and pwd that he has entered will get displayed.
 //			Authentication auth= SecurityContextHolder.getContext().getAuthentication();
